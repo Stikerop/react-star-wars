@@ -1,0 +1,19 @@
+import React from 'react';
+import s from './PeopleList.module.css'
+
+const PeopleList = ({people}) => {
+    return (
+        <ul className={s.list__container}>
+            {people.map(({id, name, img}) =>
+                <li className={s.list__item} key={id}>
+                    <a href="#">
+                        <img className={s.person__photo} src={img} alt={name} />
+                        <p>{name}</p>
+                    </a>
+                </li>
+            )}
+        </ul>
+    );
+};
+
+export default PeopleList;
