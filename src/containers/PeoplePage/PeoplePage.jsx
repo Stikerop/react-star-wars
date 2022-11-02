@@ -47,7 +47,7 @@ const PeoplePage = ({setErrorApi}) => {
 
     useEffect(() => {
         getResource(API_PEOPLE + queryPage);
-    }, [queryPage]);
+    }, []);
 
     return (
         <>

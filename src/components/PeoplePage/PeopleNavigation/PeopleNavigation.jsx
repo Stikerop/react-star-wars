@@ -9,13 +9,28 @@ const PeopleNavigation = ({
                               nextPage,
                               counterPage
                           }) => {
+    const handleChangeNext = () => getResource(nextPage);
+    const handleChangePrev = () => getResource(prevPage);
+
     return (
         <div>
-            <Link to={`/people/?page=${counterPage-1}`}>
-                <button className={s.buttons}>Previous</button>
+            <Link to={`/people/?page=${counterPage-1}`} className={s.link}>
+                <button
+                    onClick={handleChangePrev}
+                    disabled={!prevPage}
+                    className={s.buttons}
+                >
+                    Previous
+                </button>
             </Link>
-            <Link to={`/people/?page=${counterPage+1}`}>
-                <button className={s.buttons}>Next</button>
+            <Link to={`/people/?page=${counterPage+1}`} className={s.link}>
+                <button
+                    onClick={handleChangeNext}
+                    disabled={!nextPage}
+                    className={s.buttons}
+                >
+                    Next
+                </button>
             </Link>
         </div>
     );
