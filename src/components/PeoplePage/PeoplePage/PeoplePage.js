@@ -1,20 +1,18 @@
 import {React, useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import {withErrorApi } from "@hoc-helpers/withErrorApi";
-import PeopleList from "@components/PeoplePage/PeopleList";
-import peopleNavigation from "@components/PeoplePage/PeopleNavigation";
+import PeopleList from "../PeopleList/PeopleList";
+import peopleNavigation from "../PeopleNavigation/PeopleNavigation";
 import {getApiResource, changeHTTP} from "@utils/network";
 import {getPeopleId, getPeopleImage, getPeoplePageId} from "@services/getPeopleData";
 import {API_PEOPLE} from "@constants/api";
 import {useQueryParams} from "@hooks/useQueryParams";
-import s from './PeoplePage.module.css';
-import PeopleNavigation from "../../components/PeoplePage/PeopleNavigation";
-
+import PeopleNavigation from "../PeopleNavigation/PeopleNavigation";
 
 const PeoplePage = ({setErrorApi}) => {
-    const [people, setPeople] = useState(null);
-    const [prevPage, setPrevPage] = useState(null);
-    const [nextPage, setNextPage] = useState(null);
+    const [people, setPeople] = useState('');
+    const [prevPage, setPrevPage] = useState('');
+    const [nextPage, setNextPage] = useState('');
     const [counterPage, setCounterPage] = useState(1);
 
 
